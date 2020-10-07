@@ -8,6 +8,8 @@ import shutil
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-r',action='store_true',dest="r", default=False)
+parser.add_argument('-c',action='store_true',dest="c", default=False)
+parser.add_argument('-i',action='store', type=int, dest="i", default=None)
 parser.add_argument('--path',action='store',dest="path", default= "C:\\Users\\{user}\\Documents\\My Games\\They Are Billions\\".format(user=os.getlogin()))
 
 args = parser.parse_args()
@@ -65,13 +67,19 @@ def watch(path):
 
             zipSave(path)
         else:
+            if args.i is not None:
+                time.sleep(args.i)
             continue
 
 
 def main():
     if args.r:
         showMenu()
+    elif args.c:
+        shutil.rmtree("saves")
     else:
+        if not os.path.exists("saves"):
+            os.mkdir("saves")
         watch(args.path)     
 
 if __name__ == "__main__":

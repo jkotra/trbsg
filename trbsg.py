@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('-r',action='store_true',dest="r", default=False)
 parser.add_argument('-c',action='store_true',dest="c", default=False)
-parser.add_argument('-i',action='store', type=int, dest="i", default=None)
+parser.add_argument('-i',action='store', type=int, dest="i", default=5)
 parser.add_argument('--path',action='store',dest="path", default= "C:\\Users\\{user}\\Documents\\My Games\\They Are Billions\\".format(user=os.getlogin()))
 
 args = parser.parse_args()
@@ -62,7 +62,6 @@ def watch(path):
   
 
         if current_modified_times != modified_times:
-            print(modified_times, current_modified_times)
             modified_times = current_modified_times
 
             zipSave(path)

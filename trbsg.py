@@ -7,10 +7,10 @@ import shutil
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-r',action='store_true',dest="r", default=False)
-parser.add_argument('-c',action='store_true',dest="c", default=False)
-parser.add_argument('-i',action='store', type=int, dest="i", default=5)
-parser.add_argument('--path',action='store',dest="path", default= "C:\\Users\\{user}\\Documents\\My Games\\They Are Billions\\".format(user=os.getlogin()))
+parser.add_argument('-r', '--restore', action='store_true',dest="r", default=False)
+parser.add_argument('-c', '--clear', action='store_true',dest="c", default=False)
+parser.add_argument('-i', '--interval', action='store', type=int, dest="i", default=5)
+parser.add_argument('--path', action='store',dest="path", default= "C:\\Users\\{user}\\Documents\\My Games\\They Are Billions\\".format(user=os.getlogin()))
 
 args = parser.parse_args()
 
